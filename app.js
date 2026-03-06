@@ -4,7 +4,6 @@ import cookieParser from "cookie-parser";
 import { accountRouter } from "./routes/account.routes.js";
 import { transactionRouter } from "./routes/transaction.routes.js";
 
-
 export const app = express();
 
 //middlewares
@@ -15,6 +14,12 @@ app.use(express.urlencoded({ extended: true }));
 /**
  * Routes
  */
+
+//dummy routes
+app.get("/", (req, res) => {
+  res.send("Welcome to the Banking ledger API services");
+});
+
 app.use("/api/v1/auth", authRouter);
 
 app.use("/api/v1/account", accountRouter);
